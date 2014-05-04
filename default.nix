@@ -1,13 +1,11 @@
 { cabal
 , attempt
 , aws
-, bytestring ? null
 , cereal
 , conduit
 , conduitExtra
 , cryptohash
 , dataDefault
-, directory ? null
 , failure
 , fastLogger
 , filepath
@@ -18,14 +16,12 @@
 , mmorph
 , monadControl
 , monadLogger
-, old-locale ? null
 , optparseApplicative
 , resourcet
-, retry ? null
-, shakespeareText
+, retry
+, shakespeare
 , stm
 , tar
-, templateHaskell ? null
 , temporary
 , text
 , thyme
@@ -42,13 +38,11 @@ cabal.mkDerivation (self: {
   buildDepends = [
     attempt
     aws
-    bytestring
     cereal
     conduit
     conduitExtra
     cryptohash
     dataDefault
-    directory
     failure
     fastLogger
     filepath
@@ -59,14 +53,12 @@ cabal.mkDerivation (self: {
     mmorph
     monadControl
     monadLogger
-    old-locale
     optparseApplicative
     resourcet
     retry
-    shakespeareText
+    shakespeare
     stm
     tar
-    templateHaskell
     temporary
     text
     thyme

@@ -38,7 +38,7 @@ executable simple-mirror
     , optparse-applicative
     , resourcet
     , retry
-    , shakespeare-text
+    , shakespeare
     , stm
     , tar
     , template-haskell
