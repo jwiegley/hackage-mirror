@@ -163,9 +163,9 @@ awsRetry :: (MonadIO m, Transaction r a)
          -> Manager
          -> r
          -> ResourceT m (Response (ResponseMetadata a) a)
-awsRetry cfg svcfg mgr r =
-    transResourceT liftIO $
-        retrying def (has _Left . responseResult) $ aws cfg svcfg mgr r
+awsRetry cfg svcfg mgr =
+    transResourceT liftIO .
+        retrying def (\_ -> return . has _Left . responseResult) . aws cfg svcfg mgr
 
 downloadFromS3 :: MonadResource m
                => Configuration
