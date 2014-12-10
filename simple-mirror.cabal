@@ -15,35 +15,26 @@ executable simple-mirror
   main-is: SimpleMirror.hs
   build-depends:       
       base >=4.5
-    , attempt
-    , aws
-    , bytestring
-    , cereal
+
     , conduit
     , conduit-extra
-    , cryptohash
-    , data-default
-    , directory
-    , failure
-    , fast-logger
-    , filepath
     , http-conduit
-    , lens
+    , resourcet
+
+    , bytestring
+    , cereal
+    , cryptohash
+    , directory
+    , filepath
     , lifted-async
     , lifted-base
+    , logging
     , mmorph
     , monad-control
-    , monad-logger
-    , old-locale
     , optparse-applicative
-    , resourcet
-    , retry
-    , shakespeare
     , stm
     , tar
-    , template-haskell
     , temporary
     , text
-    , thyme
     , transformers
     , unordered-containers
