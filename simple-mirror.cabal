@@ -28,7 +28,7 @@ executable simple-mirror
     , filepath
     , lifted-async
     , lifted-base
-    , logging
+    , logging >= 2.2.0
     , mmorph
     , monad-control
     , optparse-applicative
