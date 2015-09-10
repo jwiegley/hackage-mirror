@@ -97,9 +97,11 @@ indexPackages src = do
                 [name, vers, _] ->
                     yield $ Package name vers cabal
                         (T.encodeUtf8 (T.pack (name <> vers))) ent
-                ["preferred-versions"] -> return ()
-                _ -> errorL' $ "Failed to parse package name: "
-                           <> T.pack (Tar.entryPath ent)
+                ["preferred-versions"]    -> return ()
+                [_, "preferred-versions"] -> return ()
+                xs -> errorL' $ "Failed to parse package name: "
+                           <> T.pack (Tar.entryPath ent) <> " ("
+                           <> T.pack (show xs) <> ")"
             sinkEntries entries
         | otherwise = sinkEntries entries
     sinkEntries Tar.Done = return ()
@@ -207,7 +209,7 @@ mirrorHackage Options {..} = withManager $ \mgr -> do
                 res <- concurrently
                     (push mgr upath $ download mgr mirrorFrom dpath)
                     (push mgr cabal $ CB.sourceLbs (packageCabal pkg))
-                log' $ "Mirrored " <> T.pack fname
+                log' $ T.pack fname
                 return res
         case (el, er) of
             (Right (), Right ()) -> liftIO $ atomically $ do
