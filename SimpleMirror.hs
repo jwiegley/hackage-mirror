@@ -228,7 +228,7 @@ mirrorHackage Options {..} = withManager $ \mgr -> do
                 let msg = T.pack (show (e :: SomeException))
                 unless ("No tarball exists for this package version"
                         `T.isInfixOf` msg) $
-                    errorL' $ "FAILED " <> T.pack file <> ": " <> msg
+                    warn' $ "FAILED " <> T.pack file <> ": " <> msg
         return eres
 
     getChecksums mgr = do
