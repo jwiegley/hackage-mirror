@@ -30,6 +30,7 @@ import qualified Data.Conduit.List as CL
 import           Data.Conduit.Zlib as CZ
 import qualified Data.HashMap.Strict as M
 import           Data.List
+import           Data.Monoid ((<>))
 import           Data.Serialize hiding (label)
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as T
